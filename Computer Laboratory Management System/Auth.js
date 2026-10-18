@@ -4,7 +4,7 @@
     const SESSION_KEY = 'clm_session';
     const ACCOUNT_KEY = 'clm_account';
     const TAB_EPOCH_KEY = 'clm_tab_epoch';
-    const LOGIN_URL = 'Login.html';
+    const LOGIN_URL = 'index.html';
 
     function readJSON(key) {
         try {
