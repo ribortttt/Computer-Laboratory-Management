@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems &amp; Maintenance</title>
+    <link rel="icon" type="image/x-icon" href="images/Pcclogo.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800&family=Noto+Sans:wght@400;500;600&family=Instrument+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CLM.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <img src="images/Pcclogo.png" alt="School Logo">
+                </div>
+                <h2>Computer<br>Laboratory<br>Management</h2>
+            </div>
+
+            <nav class="navigation">
+                <a href="Dashboard.html" class="nav-link" data-page="Dashboard">Dashboard</a>
+                <a href="Computers.html" class="nav-link" data-page="Computers">Computers</a>
+                <a href="Prob&amp;Maintenance.html" class="nav-link active" data-page="Problems & Maintenance">Problems &amp; Maintenance</a>
+                <a href="report.html" class="nav-link" data-page="Reports">Reports</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="admin-card">
+                    <div class="avatar"></div>
+                    <div>
+                        <h3>Lab Administrator</h3>
+                        <p>Admin</p>
+                    </div>
+                </div>
+                <a href="profile.html" class="bottom-link" data-page="My Profile">My Profile</a>
+                <a href="Login.html" class="bottom-link" id="logoutBtn">Log out</a>
+            </div>
+        </aside>
+
+        <main class="main-content-maintenance">
+            <header class="page-header-maintenance">
+                <h1 id="pageTitle-maintenance">Problems &amp; Maintenance</h1>
+                <button type="button" class="report-button-maintenance" id="openReportBtn-maintenance">Report a problem</button>
+            </header>
+
+            <section class="toolbar-maintenance">
+                <input type="search" id="searchInput-maintenance" placeholder="Search Problems">
+
+                <select id="labFilter-maintenance" aria-label="Filter by laboratory">
+                    <option value="">All Laboratories</option>
+                </select>
+
+                <select id="statusFilter-maintenance" aria-label="Filter by status">
+                    <option value="">All Status</option>
+                </select>
+            </section>
+
+            <section class="table-section-maintenance">
+                <div class="table-wrapper-maintenance">
+                    <table class="data-table-maintenance">
+                        <thead>
+                            <tr>
+                                <th>Computer</th>
+                                <th>Problem</th>
+                                <th>Reported by</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="problemsTableBody-maintenance"></tbody>
+                    </table>
+                </div>
+
+                <p class="note-maintenance">Changing a problem status also updates the computer status.</p>
+            </section>
+        </main>
+        <div class="modal-overlay-maintenance hidden-maintenance" id="problemModal-maintenance">
+            <div class="modal-maintenance" role="dialog" aria-modal="true" aria-labelledby="modalTitle-maintenance">
+                <h2 id="modalTitle-maintenance">Report a Problem</h2>
+                <p class="modal-subtitle-maintenance">What is wrong with the computer?</p>
+
+                <form id="problemForm-maintenance">
+                    <div class="form-grid-maintenance">
+
+                        <div class="form-group-maintenance">
+                            <label for="laboratory-maintenance">Laboratory</label>
+                            <select id="laboratory-maintenance"></select>
+                        </div>
+
+                        <div class="form-group-maintenance">
+                            <label for="computer-maintenance">Computer</label>
+                            <select id="computer-maintenance"></select>
+                        </div>
+
+                        <div class="form-group-maintenance">
+                            <label for="problemType-maintenance">Problem type</label>
+                            <select id="problemType-maintenance"></select>
+                        </div>
+
+                        <div class="form-group-maintenance">
+                            <span class="group-label-maintenance" id="statusLabel-maintenance">Status</span>
+                            <div class="status-chips-maintenance" role="radiogroup" aria-labelledby="statusLabel-maintenance">
+                                <label class="status-chip-maintenance chip-pending-maintenance">
+                                    <input type="radio" name="problemStatus" value="Pending" checked>
+                                    <span>Pending</span>
+                                </label>
+                                <label class="status-chip-maintenance chip-in-progress-maintenance">
+                                    <input type="radio" name="problemStatus" value="In progress">
+                                    <span>In progress</span>
+                                </label>
+                                <label class="status-chip-maintenance chip-resolved-maintenance">
+                                    <input type="radio" name="problemStatus" value="Resolved">
+                                    <span>Resolved</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group-maintenance full-width-maintenance">
+                            <label for="description-maintenance">Describe the problem</label>
+                            <textarea id="description-maintenance" required
+                                      placeholder="Example: The Monitor Flickers and turns off after a few minutes"></textarea>
+                        </div>
+
+                        <div class="form-group-maintenance">
+                            <label for="reportedBy-maintenance">Reported by</label>
+                            <input type="text" id="reportedBy-maintenance" required placeholder="Mr. Santos">
+                        </div>
+
+                        <div class="form-group-maintenance">
+                            <span class="group-label-maintenance">Date Reported</span>
+                            <div class="date-fields-maintenance">
+                                <input type="text" id="day-maintenance" inputmode="numeric" maxlength="2" placeholder="DD" aria-label="Day">
+                                <input type="text" id="month-maintenance" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Month">
+                                <input type="text" id="year-maintenance" inputmode="numeric" maxlength="4" placeholder="YYYY" aria-label="Year">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions-maintenance">
+                        <button type="button" class="cancel-button-maintenance" id="cancelBtn-maintenance">Cancel</button>
+                        <button type="submit" class="submit-button-maintenance" id="submitBtn-maintenance">Submit Problem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+<script src="Maintenance.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
