@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Laboratory Management - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CLM.css">
+  <link rel="icon" type="image/x-icon" href="images/Pcclogo.png?v=2">
+</head>
+<body>
+       <main class="page">
+    <div class="panel" aria-hidden="true"></div>
+
+    <div class="logo-area">
+      <div class="glow">
+        <div class="logo" id="logo">
+          <img id="logoImg" src="images/Pcclogo.png" alt="School logo">
+        </div>
+      </div>
+    </div>
+
+    <section class="login">
+      <h1>Computer<br>Laboratory<br>Management</h1>
+
+      <form id="loginForm" novalidate>
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Enter Username" autocomplete="username">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter Password" autocomplete="current-password">
+
+        <button type="submit">Sign In</button>
+        <p class="msg" id="msg" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+<script src="CLM.js"></script>
+</body>
+</html>
