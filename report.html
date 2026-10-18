@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="icon" type="image/x-icon" href="images/Pcclogo.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800&family=Noto+Sans:wght@400;500;600&family=Instrument+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CLM.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <img src="images/Pcclogo.png" alt="School Logo">
+                </div>
+                <h2>Computer<br>Laboratory<br>Management</h2>
+            </div>
+
+            <nav class="navigation">
+                <a href="Dashboard.html" class="nav-link" data-page="Dashboard">Dashboard</a>
+                <a href="Computers.html" class="nav-link" data-page="Computers">Computers</a>
+                <a href="Prob&amp;Maintenance.html" class="nav-link" data-page="Problems & Maintenance">Problems &amp; Maintenance</a>
+                <a href="Report.html" class="nav-link active" data-page="Reports">Reports</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="admin-card">
+                    <div class="avatar"></div>
+                    <div>
+                        <h3>Lab Administrator</h3>
+                        <p>Admin</p>
+                    </div>
+                </div>
+                <a href="profile.html" class="bottom-link" data-page="My Profile">My Profile</a>
+                <a href="Login.html" class="bottom-link" id="logoutBtn">Log out</a>
+            </div>
+        </aside>
+
+        <main class="main-content-reports">
+            <header class="page-header-reports">
+                <h1 id="pageTitle-reports">Reports</h1>
+                <button type="button" class="print-button-reports" id="openPrintBtn-reports">Print report</button>
+            </header>
+
+            <section class="report-section-reports">
+                <h2>Laboratory usage per week</h2>
+                <div class="table-wrapper-reports">
+                    <table class="data-table-reports">
+                        <thead>
+                            <tr>
+                                <th>Laboratory</th>
+                                <th>Classes</th>
+                                <th>Hours per week</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usageBody-reports"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="report-section-reports">
+                <h2>Open Problems</h2>
+                <div class="table-wrapper-reports">
+                    <table class="data-table-reports">
+                        <thead>
+                            <tr>
+                                <th>Computer</th>
+                                <th>Problem</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="problemsBody-reports"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="report-section-reports">
+                <h2>Unauthorized application use</h2>
+                <div class="table-wrapper-reports">
+                    <table class="data-table-reports">
+                        <thead>
+                            <tr>
+                                <th>Computer</th>
+                                <th>Application</th>
+                                <th>Minutes</th>
+                                <th>Logged</th>
+                            </tr>
+                        </thead>
+                        <tbody id="unauthorizedBody-reports"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <div class="print-view-reports hidden-reports" id="printView-reports">
+            <header class="print-header-reports">
+                <h1>Print Report</h1>
+                <button type="button" class="back-button-reports" id="backBtn-reports">Back to Reports</button>
+            </header>
+
+            <div class="print-body-reports">
+                <aside class="options-panel-reports" id="optionsPanel-reports">
+
+                    <div class="options-group-reports">
+                        <h3>Include Sections</h3>
+                        <label class="option-row-reports">
+                            <input type="checkbox" id="secUsage-reports" checked>
+                            <span>Laboratory usage per week</span>
+                        </label>
+                        <label class="option-row-reports">
+                            <input type="checkbox" id="secProblems-reports" checked>
+                            <span>Open problems</span>
+                        </label>
+                        <label class="option-row-reports">
+                            <input type="checkbox" id="secUnauthorized-reports" checked>
+                            <span>Unauthorized application use</span>
+                        </label>
+                        <label class="option-row-reports">
+                            <input type="checkbox" id="secSummary-reports" checked>
+                            <span>Summary total</span>
+                        </label>
+                    </div>
+
+                    <div class="options-group-reports">
+                        <h3>Page setup</h3>
+                        <div class="field-reports">
+                            <label for="paperSize-reports">Paper size</label>
+                            <select id="paperSize-reports">
+                                <option value="A4">A4</option>
+                                <option value="Letter">Letter</option>
+                                <option value="Legal">Legal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="options-group-reports">
+                        <h3>Orientation</h3>
+                        <div class="orientation-reports" role="radiogroup" aria-label="Orientation">
+                            <label class="orientation-option-reports">
+                                <input type="radio" name="orientation" value="portrait" checked>
+                                <span>Portrait</span>
+                            </label>
+                            <label class="orientation-option-reports">
+                                <input type="radio" name="orientation" value="landscape">
+                                <span>Landscape</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="options-group-reports">
+                        <div class="field-reports">
+                            <label for="preparedBy-reports" class="label-bold-reports">Prepared by</label>
+                            <input type="text" id="preparedBy-reports" value="Lab Administrator" placeholder="Lab Administrator">
+                        </div>
+                        <label class="option-row-reports">
+                            <input type="checkbox" id="addSignature-reports" checked>
+                            <span>Add Signature</span>
+                        </label>
+                    </div>
+
+                    <button type="button" class="print-submit-reports" id="printNowBtn-reports">Print report</button>
+                </aside>
+
+                <div class="preview-frame-reports" id="previewFrame-reports">
+                    <div class="preview-stage-reports" id="previewStage-reports">
+                        <iframe id="previewIframe-reports" title="Report preview"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script src="Reports.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

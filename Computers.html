@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computers</title>
+    <link rel="icon" type="image/x-icon" href="images/Pcclogo.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800&family=Noto+Sans:wght@400;500;600&family=Instrument+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CLM.css">
+
+</head>
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <img src="images/Pcclogo.png" alt="School Logo">
+                </div>
+                <h2>Computer<br>Laboratory<br>Management</h2>
+            </div>
+
+            <nav class="navigation">
+                <a href="Dashboard.html" class="nav-link" data-page="Dashboard">Dashboard</a>
+                <a href="Computers.html" class="nav-link active" data-page="Computers">Computers</a>
+                <a href="Prob&Maintenance.html" class="nav-link" data-page="Problems & Maintenance">Problems &amp; Maintenance</a>
+                <a href="report.html" class="nav-link" data-page="Reports">Reports</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="admin-card">
+                    <div class="avatar"></div>
+                    <div>
+                        <h3>Lab Administrator</h3>
+                        <p>Admin</p>
+                    </div>
+                </div>
+                <a href="profile.html" class="bottom-link" data-page="My Profile">My Profile</a>
+                <a href="Login.html" class="bottom-link" id="logoutBtn">Log out</a>
+            </div>
+        </aside>
+    
+  
+     <main class="main-content-computers">
+            <header class="page-header-computers">
+                <h1 id="pageTitle-computers">Computer Units</h1>
+                <button type="button" class="add-button-computers" id="openAddModalBtn-computers">Add Computer</button>
+            </header>
+ 
+            <section class="toolbar-computers">
+                <input type="search" id="searchInput-computers"
+                       placeholder="Search PC number, user, or specification">
+ 
+                <select id="labFilter-computers" aria-label="Filter by laboratory">
+                    <option value="">All Laboratories</option>
+                </select>
+ 
+                <select id="statusFilter-computers" aria-label="Filter by status">
+                    <option value="">All Status</option>
+                </select>
+ 
+                <select id="ramFilter-computers" aria-label="Filter by RAM size">
+                    <option value="">All RAM sizes</option>
+                </select>
+            </section>
+ 
+            <section class="table-section-computers">
+                <div class="table-wrapper-computers">
+                    <table class="data-table-computers">
+                        <thead>
+                            <tr>
+                                <th data-sort="pcNumber">PC number</th>
+                                <th data-sort="laboratory">Laboratory</th>
+                                <th data-sort="status">Status</th>
+                                <th data-sort="assignedTo">Assigned to</th>
+                                <th data-sort="processor">Processor</th>
+                                <th data-sort="ram">RAM</th>
+                                <th data-sort="storage">Storage</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="computersTableBody-computers"></tbody>
+                    </table>
+                </div>
+ 
+                <p class="record-count-computers" id="recordCount-computers"></p>
+            </section>
+        </main>
+ 
+        <div class="modal-overlay-computers hidden-computers" id="computerModal-computers">
+            <div class="modal-computers" role="dialog" aria-modal="true" aria-labelledby="modalTitle-computers">
+                <h2 id="modalTitle-computers">Add Computer</h2>
+ 
+                <form id="computerForm-computers">
+                    <div class="form-grid-computers">
+ 
+                        <div class="form-group-computers">
+                            <label for="pcNumber-computers">PC number</label>
+                            <input type="text" id="pcNumber-computers" required>
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="laboratory-computers">Laboratory</label>
+                            <select id="laboratory-computers"></select>
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="status-computers">Status</label>
+                            <select id="status-computers"></select>
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="assignedTo-computers">Assigned user or class</label>
+                            <input type="text" id="assignedTo-computers" placeholder="Optional">
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="processor-computers">Processor</label>
+                            <input type="text" id="processor-computers">
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="ram-computers">RAM</label>
+                            <input type="text" id="ram-computers">
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="storage-computers">Storage</label>
+                            <input type="text" id="storage-computers">
+                        </div>
+ 
+                        <div class="form-group-computers">
+                            <label for="keyboard-computers">Keyboard</label>
+                            <input type="text" id="keyboard-computers">
+                        </div>
+ 
+                        <div class="form-group-computers full-width-computers">
+                            <label for="mouse-computers">Mouse</label>
+                            <input type="text" id="mouse-computers">
+                        </div>
+                    </div>
+ 
+                    <div class="modal-actions-computers">
+                        <button type="button" class="cancel-button-computers" id="cancelBtn-computers">Cancel</button>
+                        <button type="submit" class="submit-button-computers" id="submitBtn-computers">Add Computer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+<script src="Computers.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
